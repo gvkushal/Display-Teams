@@ -1,5 +1,9 @@
 package com.webproject.controller;
 
+/*
+* @author G V kushal 
+**/
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.webproject.DAO.TeamMembersDAO;
 import com.webproject.model.TeamMember;
 
-
+//The Servlet for team operations.
 
 @WebServlet("/TeamServlet")
 public class TeamServlet extends HttpServlet {
@@ -30,9 +34,9 @@ public class TeamServlet extends HttpServlet {
 		
 		if("AddTeam".equals((String)request.getParameter("action")))
 		{
-			
-		System.out.println("I am in AddTeam");
-		// code for adding team members
+	
+				// code to adding team members
+		
 		String team = request.getParameter("team");
 		ArrayList<TeamMember> players = new ArrayList<>(); 
 		players.add(new TeamMember(request.getParameter("member1Firstname"),request.getParameter("member1Lastname"), request.getParameter("member1MonthOfBirth")));
@@ -40,7 +44,6 @@ public class TeamServlet extends HttpServlet {
 		players.add(new TeamMember(request.getParameter("member3Firstname"),request.getParameter("member3Lastname"), request.getParameter("member3MonthOfBirth")));
 		players.add(new TeamMember(request.getParameter("member4Firstname"),request.getParameter("member4Lastname"), request.getParameter("member4MonthOfBirth")));
 		players.add(new TeamMember(request.getParameter("member5Firstname"),request.getParameter("member5Lastname"), request.getParameter("member5MonthOfBirth")));
-		//System.out.println(players);
 		tDAO.mySqlConnection();
 		number=tDAO.addWholeTeam(team, players);
 		if(number>0)
@@ -55,8 +58,9 @@ public class TeamServlet extends HttpServlet {
 		}
 		else if("ShowTeams".equals((String)request.getParameter("action")))
 		{
-			System.out.println("I am in AllshowTeam");
-		//code for display whole team
+			
+				//code to display whole team
+		
 		tDAO.mySqlConnection();
 		request.getSession().setAttribute("teamsData", tDAO.showAllTeams());
 		RequestDispatcher rd = request.getRequestDispatcher("allTeams.jsp");

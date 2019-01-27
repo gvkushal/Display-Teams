@@ -1,5 +1,9 @@
 package com.webproject.model;
 
+/*
+* @author G V kushal 
+**/
+
 public class User 
 {
 String firstname;

@@ -1,5 +1,9 @@
 package com.webproject.controller;
 
+/*
+* @author G V kushal 
+**/
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -26,11 +30,11 @@ public class UserServlet extends HttpServlet
 	
 		PrintWriter out = response.getWriter();
 		User user = new User();
-		DAOInterface DAO = new UserDAO();
-		System.out.println((String)request.getParameter("request_type"));		
+		DAOInterface DAO = new UserDAO();		
 		if ("login".equals((String)request.getParameter("request_type")))
 		{	
-			System.out.println("I am in ");
+				//Code for Login 
+			
 			String username = (String)request.getParameter("username");
 			user.setUsername(username);
 			String password = (String)request.getParameter("password");
@@ -38,7 +42,6 @@ public class UserServlet extends HttpServlet
 			
 			if(username.trim().length()==0||password.trim().length()==0)
 			{
-				System.out.println("index check");
 			response.sendRedirect("index.jsp");
 			}
 			else{
@@ -58,7 +61,8 @@ public class UserServlet extends HttpServlet
 		}
 		else if ("register".equals((String)request.getParameter("request_type"))) //code for register SignUp.
 		{	
-			System.out.println("In register");
+			//Code for Register
+			
 		int number=0;
 		String username = (String)request.getParameter("username");
 		user.setUsername(username);

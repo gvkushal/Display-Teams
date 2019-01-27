@@ -1,4 +1,9 @@
 package com.webproject.controller;
+
+/*
+* @author G V kushal 
+**/
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -13,6 +18,7 @@ import com.webproject.DAO.MemberDAO;
 import com.webproject.DAO.TeamMembersDAO;
 import com.webproject.model.TeamMember;
 
+//Servlet for all player info display operations.
 
 @WebServlet("/MemberServlet")
 public class MemberServlet extends HttpServlet {
@@ -20,7 +26,6 @@ public class MemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		MemberDAO mDAO = new MemberDAO();
-		//PrintWriter out = response.getWriter();
 		String playerName = request.getParameter("player");
 		mDAO.mySqlConnection();
 		request.getSession().setAttribute("playerInfo", mDAO.memberInfo(playerName));	
