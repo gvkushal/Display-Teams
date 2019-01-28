@@ -20,3 +20,14 @@ This project takes user information and stores in database and with few clicks i
 
 
 ### A very good project for a beginner to JSP, Servlets and Collections(JAVA) ###
+
+To Understand the code easily first understand the below logic to display all the teams at once.
+
+We have two items to store
+1. Team name (String)
+2. Players of a team (List)
+
+To group the above items together we have one collection in java i.e "Map".
+As we know Map is a {key:value} pair we can use the same concept to our items and place "TeamName as Key" and "Players<List> as Value"
+ 
+ # i.e {TeamName1:[PlayersList], TeamName2:[PlayersList]}
